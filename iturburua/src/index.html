@@ -1,0 +1,107 @@
+<title>zkh eta mkt animazioak</title>
+<meta name="description" content="1. DBH: zkh eta mkt problemak urratsez urrats animatuta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=DM+Mono:wght@400;500&family=Dela+Gothic+One&display=swap">
+<style>
+{{CSS}}
+.hero{display:flex;flex-direction:column;gap:10px;max-width:60ch}
+.hero h1{font-size:clamp(34px,6.5vw,64px)}
+.lead{margin:0;font-size:18px}
+.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rulebox{background:var(--sheet);border:2px solid var(--ink);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.rulebox h2{font-size:22px}
+.rulebox p{margin:0}
+.rulebox .ex{font-family:var(--f-mono);font-size:14.5px;color:var(--muted)}
+.rulebox.z{box-shadow:5px 5px 0 var(--pink)}
+.rulebox.m{box-shadow:5px 5px 0 var(--blue)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.cards,.rules{grid-template-columns:minmax(0,1fr)}}
+.card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 16px;align-items:start;background:var(--sheet);border:2px solid var(--ink);border-radius:8px;padding:16px;color:var(--ink);text-decoration:none;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--pink)}
+.card:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.card .badge{width:60px;height:60px;font-size:25px}
+.card h3{margin:0;font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.15}
+.card p{margin:4px 0 0;font-size:15.5px;color:var(--muted)}
+.kind{display:inline-block;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:999px;border:1.5px solid var(--ink);margin-bottom:6px}
+.kind.z{background:var(--pink)}
+.kind.m{background:var(--blue);color:var(--sheet)}
+.thumb{grid-column:1/-1;background:var(--paper);border-radius:6px;padding:10px;border:1px solid var(--line)}
+.thumb svg{display:block;width:100%;height:auto;max-height:120px}
+.go{grid-column:1/-1;font-weight:700;font-size:15px}
+.foot{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+</style>
+<div class="wrap">
+  <header class="hero">
+    <p class="kicker">1. DBH · Matematika · Zatigarritasuna</p>
+    <h1>zkh eta mkt, urratsez urrats</h1>
+    <p class="lead">Lau problema, animazio bana. Aukeratu bat eta sakatu <b>Erreproduzitu</b>, edo joan urratsez urrats geziekin.</p>
+  </header>
+
+  <section class="rules" aria-label="Gogoratu">
+    <div class="rulebox z">
+      <span class="tag">Gogoratu</span>
+      <h2>zkh · zatitzaile komun handiena</h2>
+      <p>Faktore <b>komunak</b> bakarrik, <b>berretzaile txikienarekin</b>. Zatitu, banatu, moztu gabe… “handiena” galdetzen dutenean.</p>
+      <p class="ex">zkh(12, 18) = 2 · 3 = 6</p>
+    </div>
+    <div class="rulebox m">
+      <span class="tag">Gogoratu</span>
+      <h2>mkt · multiplo komun txikiena</h2>
+      <p>Faktore <b>komunak eta ez-komunak</b>, <b>berretzaile handienarekin</b>. Berriz batera, garaiera bera… “gutxienez” galdetzen dutenean.</p>
+      <p class="ex">mkt(12, 18) = 2² · 3² = 36</p>
+    </div>
+  </section>
+
+  <section class="cards" aria-label="Ariketak">
+    <a class="card" href="46-lauzak.html">
+      <div class="badge" aria-hidden="true">46</div>
+      <div><span class="kind z">zkh</span><h3>Logelako lauzak</h3><p>520 × 240 cm-ko logela: zein da lauza karratu handiena, moztu gabe?</p></div>
+      <div class="thumb" aria-hidden="true"><svg viewBox="0 0 260 120">
+        <rect x="0" y="0" width="260" height="120" style="fill:var(--blue);fill-opacity:.85"/>
+        <g style="stroke:var(--sheet);stroke-width:2">
+          <path d="M20 0V120M40 0V120M60 0V120M80 0V120M100 0V120M120 0V120M140 0V120M160 0V120M180 0V120M200 0V120M220 0V120M240 0V120M0 20H260M0 40H260M0 60H260M0 80H260M0 100H260"/>
+        </g>
+        <rect x="0" y="0" width="20" height="20" style="fill:none;stroke:var(--yellow);stroke-width:4"/>
+        <rect x="1.5" y="1.5" width="257" height="117" style="fill:none;stroke:var(--ink);stroke-width:3"/>
+      </svg></div>
+      <span class="go">Ireki animazioa →</span>
+    </a>
+    <a class="card" href="47-alarmak.html">
+      <div class="badge" aria-hidden="true">47</div>
+      <div><span class="kind m">mkt</span><h3>Oihanaren alarmak</h3><p>30, 90 eta 150 minutuz behin: noiz jotzen dute berriz batera?</p></div>
+      <div class="thumb" aria-hidden="true"><svg viewBox="0 0 260 120">
+        <rect x="204" y="10" width="26" height="100" rx="13" style="fill:var(--pink);fill-opacity:.5"/>
+        <g style="stroke:var(--ink);stroke-width:1.5"><path d="M10 25H250M10 60H250M10 95H250"/></g>
+        <g style="fill:var(--pink);stroke:var(--ink);stroke-width:1.2"><circle cx="10" cy="25" r="6"/><circle cx="24" cy="25" r="6"/><circle cx="38" cy="25" r="6"/><circle cx="52" cy="25" r="6"/><circle cx="66" cy="25" r="6"/><circle cx="80" cy="25" r="6"/><circle cx="94" cy="25" r="6"/><circle cx="108" cy="25" r="6"/><circle cx="122" cy="25" r="6"/><circle cx="136" cy="25" r="6"/><circle cx="150" cy="25" r="6"/><circle cx="164" cy="25" r="6"/><circle cx="178" cy="25" r="6"/><circle cx="192" cy="25" r="6"/><circle cx="206" cy="25" r="6"/><circle cx="220" cy="25" r="6"/></g>
+        <g style="fill:var(--blue);stroke:var(--ink);stroke-width:1.2"><circle cx="10" cy="60" r="6"/><circle cx="52" cy="60" r="6"/><circle cx="94" cy="60" r="6"/><circle cx="136" cy="60" r="6"/><circle cx="178" cy="60" r="6"/><circle cx="220" cy="60" r="6"/></g>
+        <g style="fill:var(--yellow);stroke:var(--ink);stroke-width:1.2"><circle cx="10" cy="95" r="6"/><circle cx="80" cy="95" r="6"/><circle cx="150" cy="95" r="6"/><circle cx="220" cy="95" r="6"/></g>
+      </svg></div>
+      <span class="go">Ireki animazioa →</span>
+    </a>
+    <a class="card" href="48-kuboak.html">
+      <div class="badge" aria-hidden="true">48</div>
+      <div><span class="kind m">mkt</span><h3>Lierniren kubo-zutabeak</h3><p>55 mm-ko eta 45 mm-ko kuboak: noiz dira bi zutabeak garaiera berekoak?</p></div>
+      <div class="thumb" aria-hidden="true"><svg viewBox="0 0 260 120">
+        <path d="M60 11H200" style="stroke:var(--green);stroke-width:2.5;stroke-dasharray:6 4"/>
+        <g style="fill:var(--blue);stroke:var(--ink);stroke-width:1.3"><rect x="80" y="11" width="36" height="12"/><rect x="80" y="23" width="36" height="12"/><rect x="80" y="35" width="36" height="12"/><rect x="80" y="47" width="36" height="12"/><rect x="80" y="59" width="36" height="12"/><rect x="80" y="71" width="36" height="12"/><rect x="80" y="83" width="36" height="12"/><rect x="80" y="95" width="36" height="12"/><rect x="80" y="107" width="36" height="12"/></g>
+        <g style="fill:var(--red);stroke:var(--ink);stroke-width:1.3"><rect x="146" y="11" width="30" height="9.8"/><rect x="146" y="20.8" width="30" height="9.8"/><rect x="146" y="30.6" width="30" height="9.8"/><rect x="146" y="40.4" width="30" height="9.8"/><rect x="146" y="50.2" width="30" height="9.8"/><rect x="146" y="60" width="30" height="9.8"/><rect x="146" y="69.8" width="30" height="9.8"/><rect x="146" y="79.6" width="30" height="9.8"/><rect x="146" y="89.4" width="30" height="9.8"/><rect x="146" y="99.2" width="30" height="9.8"/><rect x="146" y="109" width="30" height="10"/></g>
+      </svg></div>
+      <span class="go">Ireki animazioa →</span>
+    </a>
+    <a class="card" href="49-liburuak.html">
+      <div class="badge" aria-hidden="true">49</div>
+      <div><span class="kind m">mkt</span><h3>Apalategiko liburuak</h3><p>4ko, 6ko edo 9ko piletan, soberarik gabe: gutxienez zenbat liburu?</p></div>
+      <div class="thumb" aria-hidden="true"><svg viewBox="0 0 260 120">
+        <rect x="10" y="106" width="240" height="8" style="fill:var(--ink)"/>
+        <g style="stroke:var(--ink);stroke-width:1">
+          <rect x="40" y="70" width="40" height="9" style="fill:var(--blue)"/><rect x="40" y="79" width="40" height="9" style="fill:var(--pink)"/><rect x="40" y="88" width="40" height="9" style="fill:var(--yellow)"/><rect x="40" y="97" width="40" height="9" style="fill:var(--green)"/>
+          <rect x="110" y="52" width="40" height="9" style="fill:var(--red)"/><rect x="110" y="61" width="40" height="9" style="fill:var(--violet)"/><rect x="110" y="70" width="40" height="9" style="fill:var(--blue)"/><rect x="110" y="79" width="40" height="9" style="fill:var(--pink)"/><rect x="110" y="88" width="40" height="9" style="fill:var(--yellow)"/><rect x="110" y="97" width="40" height="9" style="fill:var(--green)"/>
+          <rect x="180" y="25" width="40" height="9" style="fill:var(--yellow)"/><rect x="180" y="34" width="40" height="9" style="fill:var(--green)"/><rect x="180" y="43" width="40" height="9" style="fill:var(--red)"/><rect x="180" y="52" width="40" height="9" style="fill:var(--violet)"/><rect x="180" y="61" width="40" height="9" style="fill:var(--blue)"/><rect x="180" y="70" width="40" height="9" style="fill:var(--pink)"/><rect x="180" y="79" width="40" height="9" style="fill:var(--yellow)"/><rect x="180" y="88" width="40" height="9" style="fill:var(--green)"/><rect x="180" y="97" width="40" height="9" style="fill:var(--red)"/>
+        </g>
+      </svg></div>
+      <span class="go">Ireki animazioa →</span>
+    </a>
+  </section>
+  <p class="foot">46–49 jarduerak · Zatigarritasuna · 1. DBH</p>
+</div>

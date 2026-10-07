@@ -1,0 +1,45 @@
+<title>{{TITLE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=DM+Mono:wght@400;500&family=Dela+Gothic+One&display=swap">
+<style>
+{{CSS}}
+</style>
+<div class="wrap">
+  <header class="head">
+    <div class="badge" aria-hidden="true">{{NUM}}</div>
+    <div>
+      <p class="kicker">{{NUM}}. jarduera · {{KIND}}</p>
+      <h1>{{TITLE}}</h1>
+    </div>
+  </header>
+  <section class="statement">
+    <span class="tag">Enuntziatua</span>
+    {{STATEMENT}}
+  </section>
+  <div class="grid">
+    <div class="left">
+      <figure class="stage"><svg id="scene" viewBox="{{VIEWBOX}}" role="img" aria-label="{{ALT}}"></svg></figure>
+      <nav class="controls" aria-label="Animazioaren kontrolak">
+        <button class="ctl" id="prev" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg>Atzera</button>
+        <button class="ctl primary" id="play" type="button"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true" hidden><path d="M5 3v10M11 3v10"/></svg><span>Erreproduzitu</span></button>
+        <button class="ctl" id="next" type="button">Aurrera<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+        <button class="ctl" id="reset" type="button">Hasieratik</button>
+        <div class="dots" id="dots"></div>
+      </nav>
+      <div class="timer" id="timer"><i></i></div>
+    </div>
+    <section class="panel" id="panel" aria-live="polite">
+      <p class="stepnum anim" id="stepNum"></p>
+      <h2 class="anim" id="stepTitle"></h2>
+      <p class="text anim" id="stepText"></p>
+      <div class="board anim" id="board"></div>
+    </section>
+  </div>
+</div>
+<script>
+{{JS}}
+</script>
+<script>
+{{PAGE}}
+</script>

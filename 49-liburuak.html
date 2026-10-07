@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="eu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Apalategiko liburuak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=DM+Mono:wght@400;500&family=Dela+Gothic+One&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0}
+:root{
+  /* Riso-inprimaketa: paper hotza eta lau tinta gainjarriak (urdina, arrosa, horia, berdea). Eszena ezkerrean, azalpena eskuinean; mugikorrean pilatuta. */
+  --paper:#E9EDEE; --sheet:#F8FAF9; --ink:#1F2348; --muted:#565C78; --line:#C3C9D3;
+  --blue:#0078BF; --blue-d:#005A90; --blue-l:#5AA9DA;
+  --pink:#FF48B0; --yellow:#FFE800; --green:#00A95C;
+  --red:#F15060; --red-d:#B5303F; --red-l:#F78A96; --violet:#765BA7;
+  --f-display:"Dela Gothic One","Arial Black",Impact,sans-serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",Verdana,sans-serif;
+  --f-mono:"DM Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+[hidden]{display:none!important}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.28;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .12 0 0 0 0 .14 0 0 0 0 .28 0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:24px 48px;display:flex;flex-direction:column;gap:22px}
+.head{display:flex;gap:18px;align-items:center}
+.badge{flex:none;width:76px;height:76px;border-radius:50%;background:var(--pink);box-shadow:5px 4px 0 var(--blue);display:grid;place-items:center;font-family:var(--f-display);font-size:32px;color:var(--ink)}
+.kicker{margin:0;font-family:var(--f-mono);font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--blue)}
+h1{margin:2px 0 0;font-family:var(--f-display);font-weight:400;font-size:clamp(28px,5vw,48px);line-height:1.05;color:var(--blue);text-shadow:3px 2px 0 rgba(255,72,176,.6);text-wrap:balance}
+.statement{max-width:76ch;display:flex;flex-direction:column;gap:4px}
+.statement p{margin:0;font-size:17px}
+.tag{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:880px){.grid{grid-template-columns:minmax(0,1fr)}}
+.left{display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{margin:0;background:var(--sheet);border:2px solid var(--ink);border-radius:8px;padding:12px;box-shadow:6px 6px 0 rgba(0,120,191,.35)}
+.stage svg{display:block;width:100%;height:auto;overflow:visible}
+.stage text{font-family:var(--f-mono);fill:var(--ink)}
+.stage .disp{font-family:var(--f-display)}
+.stage .body{font-family:var(--f-body);font-weight:700}
+.panel{display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel.in .anim{animation:rise .5s ease both}
+.panel.in .anim:nth-child(2){animation-delay:.05s}
+.panel.in .anim:nth-child(3){animation-delay:.1s}
+.panel.in .anim:nth-child(4){animation-delay:.15s}
+.stepnum{margin:0;font-family:var(--f-mono);font-size:13px;letter-spacing:.06em;color:var(--muted)}
+h2{margin:0;font-family:var(--f-display);font-weight:400;font-size:clamp(22px,2.6vw,27px);line-height:1.15;text-wrap:balance}
+.text{margin:0;font-size:17.5px;max-width:62ch}
+.text b{background:linear-gradient(transparent 58%,rgba(255,232,0,.85) 58%)}
+.board{background:var(--sheet);border:1.5px dashed var(--ink);border-radius:8px;padding:14px;font-family:var(--f-mono);font-size:15px;display:flex;flex-direction:column;gap:10px;overflow-x:auto}
+.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.lab{min-width:3.4em;font-weight:500;color:var(--muted)}
+.chip{display:inline-block;min-width:2.2em;text-align:center;padding:2px 8px;border-radius:999px;border:1.5px solid var(--line);font-variant-numeric:tabular-nums}
+.chip.hit{background:var(--yellow);border-color:var(--ink)}
+.chip.win{background:var(--pink);border-color:var(--ink);font-weight:500;box-shadow:2px 2px 0 var(--blue)}
+.eq{font-size:17px;font-variant-numeric:tabular-nums}
+.eq b{color:var(--blue)}
+.bad{color:var(--red-d);font-weight:500}
+.ok{color:var(--green);font-weight:500}
+.pk{background:var(--yellow);padding:0 4px;border-radius:3px}
+.off{color:var(--muted)}
+.rule{font-family:var(--f-body);font-size:14.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
+sup{font-size:.68em;line-height:0}
+.ladders{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.lad{display:flex;flex-direction:column;gap:6px}
+.ladder{display:inline-grid;grid-template-columns:auto auto;font-variant-numeric:tabular-nums;align-self:flex-start}
+.ladder span{padding:0 9px;text-align:right;line-height:1.55}
+.ladder span:nth-child(odd){border-right:2px solid var(--ink)}
+.ladder span:nth-child(even){color:var(--blue);text-align:left}
+.result{background:var(--yellow);border:2px solid var(--ink);border-radius:8px;padding:12px 16px;display:flex;flex-direction:column;gap:2px;font-family:var(--f-body)}
+.result .big{font-family:var(--f-display);font-size:30px;line-height:1.1}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ctl{font-family:var(--f-body);font-weight:700;font-size:15px;display:inline-flex;gap:7px;align-items:center;padding:9px 15px;border-radius:999px;border:2px solid var(--ink);background:var(--sheet);color:var(--ink);cursor:pointer;transition:transform .12s,box-shadow .12s}
+.ctl.primary{background:var(--blue);border-color:var(--ink);color:var(--sheet)}
+.ctl:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--pink)}
+.ctl:focus-visible,.dot:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.ctl:disabled{opacity:.38;cursor:default}
+.ctl svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.ctl .i-play path{fill:currentColor;stroke:none}
+.dots{display:flex;flex-wrap:wrap;gap:6px;margin-left:auto}
+.dot{width:13px;height:13px;border-radius:50%;border:2px solid var(--ink);background:transparent;padding:0;cursor:pointer}
+.dot.done{background:var(--ink)}
+.dot.on{background:var(--pink)}
+.timer{height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.timer i{display:block;height:100%;width:0;background:var(--pink)}
+.timer.run i{animation:fill linear forwards}
+@keyframes fill{to{width:100%}}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.fade{transition:opacity .45s ease}
+.pop{transform-box:fill-box;transform-origin:center;transition:opacity .3s ease,transform .38s cubic-bezier(.3,1.5,.5,1)}
+.mv{transition:transform .7s cubic-bezier(.5,0,.2,1),opacity .4s ease}
+.blend{mix-blend-mode:multiply}
+@media (max-width:520px){.dots{margin-left:0;width:100%}.ctl{padding:8px 12px}}
+@media (prefers-reduced-motion:reduce){*,*::before{animation-duration:0s!important;animation-delay:0s!important;transition-duration:0s!important;transition-delay:0s!important}}
+.site{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-family:var(--f-mono);font-size:13px}
+.site a{color:var(--ink);text-decoration:none;border:1.5px solid var(--ink);border-radius:999px;padding:4px 11px;background:var(--sheet)}
+.site a:hover{box-shadow:2px 2px 0 var(--pink)}
+.site a:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.site a[aria-current="page"]{background:var(--pink)}
+.site .home{font-family:var(--f-body);font-weight:700;margin-right:auto}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="site" aria-label="Ariketak"><a class="home" href="./">← Ariketa guztiak</a><a href="46-lauzak.html">46</a><a href="47-alarmak.html">47</a><a href="48-kuboak.html">48</a><a href="49-liburuak.html" aria-current="page">49</a></nav>
+  <header class="head">
+    <div class="badge" aria-hidden="true">49</div>
+    <div>
+      <p class="kicker">49. jarduera · mkt</p>
+      <h1>Apalategiko liburuak</h1>
+    </div>
+  </header>
+  <section class="statement">
+    <span class="tag">Enuntziatua</span>
+    <p>Apalategi bateko liburuak 4, 6 edo 9 liburuko piletan jar daitezke, bat bera ere soberan geratu gabe. Gutxienez zenbat liburu egon daitezke apalategian?</p>
+  </section>
+  <div class="grid">
+    <div class="left">
+      <figure class="stage"><svg id="scene" viewBox="0 0 640 300" role="img" aria-label="Liburuak 4ko, 6ko eta 9ko piletan berrantolatzen"></svg></figure>
+      <nav class="controls" aria-label="Animazioaren kontrolak">
+        <button class="ctl" id="prev" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg>Atzera</button>
+        <button class="ctl primary" id="play" type="button"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true" hidden><path d="M5 3v10M11 3v10"/></svg><span>Erreproduzitu</span></button>
+        <button class="ctl" id="next" type="button">Aurrera<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+        <button class="ctl" id="reset" type="button">Hasieratik</button>
+        <div class="dots" id="dots"></div>
+      </nav>
+      <div class="timer" id="timer"><i></i></div>
+    </div>
+    <section class="panel" id="panel" aria-live="polite">
+      <p class="stepnum anim" id="stepNum"></p>
+      <h2 class="anim" id="stepTitle"></h2>
+      <p class="text anim" id="stepText"></p>
+      <div class="board anim" id="board"></div>
+    </section>
+  </div>
+</div>
+<script>
+const NS="http://www.w3.org/2000/svg";
+const REDUCE=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+function S(tag,attrs,parent){const e=document.createElementNS(NS,tag);if(attrs)for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+function T(txt,attrs,parent){const e=S("text",attrs,parent);e.textContent=txt;return e;}
+function show(e,on,delay){e.style.transitionDelay=((on&&delay)||0)+"ms";e.style.opacity=on?"1":"0";}
+function pop(e,on,delay){e.style.transitionDelay=((on&&delay)||0)+"ms";e.style.opacity=on?"1":"0";e.style.transform=on?"scale(1)":"scale(.4)";}
+function chips(list,hit,win,more){return list.map(n=>{let c="chip";if(n===win)c+=" win";else if(hit&&hit.indexOf(n)>-1)c+=" hit";return `<span class="${c}">${n}</span>`;}).join("")+(more?'<span class="chip">…</span>':"");}
+function mrow(label,html){return `<div class="row"><span class="lab">${label}</span>${html}</div>`;}
+function ladder(n,divs,eq){let h="",x=n;for(const d of divs){h+=`<span>${x}</span><span>${d}</span>`;x/=d;}h+="<span>1</span><span></span>";return `<div class="lad"><div class="ladder">${h}</div><div class="eq">${eq}</div></div>`;}
+function Player(steps,apply){
+  const $=id=>document.getElementById(id);
+  const panel=$("panel"),dots=$("dots"),bPrev=$("prev"),bNext=$("next"),bPlay=$("play"),bReset=$("reset"),bar=$("timer");
+  let k=0,playing=false,timer=null;
+  steps.forEach((s,i)=>{const d=document.createElement("button");d.type="button";d.className="dot";d.setAttribute("aria-label",(i+1)+". urratsa");d.addEventListener("click",()=>go(i));dots.appendChild(d);});
+  function schedule(){
+    clearTimeout(timer);bar.classList.remove("run");void bar.offsetWidth;
+    if(!playing)return;
+    if(k>=steps.length-1){setPlaying(false);return;}
+    const t=steps[k].t||7500;bar.firstElementChild.style.animationDuration=t+"ms";bar.classList.add("run");
+    timer=setTimeout(()=>go(k+1),t);
+  }
+  function go(i){
+    k=Math.max(0,Math.min(steps.length-1,i));const s=steps[k];
+    $("stepNum").textContent=`${k+1}. urratsa · ${steps.length}`;
+    $("stepTitle").innerHTML=s.h;$("stepText").innerHTML=s.p;
+    const b=$("board");b.innerHTML=s.b||"";b.hidden=!s.b;
+    panel.classList.remove("in");void panel.offsetWidth;panel.classList.add("in");
+    [...dots.children].forEach((d,j)=>{d.className="dot"+(j===k?" on":j<k?" done":"");if(j===k)d.setAttribute("aria-current","step");else d.removeAttribute("aria-current");});
+    bPrev.disabled=k===0;bNext.disabled=k===steps.length-1;
+    apply(k);schedule();
+  }
+  function setPlaying(v){
+    playing=v;bPlay.querySelector("span").textContent=v?"Pausatu":"Erreproduzitu";
+    bPlay.querySelector(".i-play").hidden=v;bPlay.querySelector(".i-pause").hidden=!v;
+    if(v&&k>=steps.length-1){go(0);return;}
+    schedule();
+  }
+  bPrev.addEventListener("click",()=>go(k-1));
+  bNext.addEventListener("click",()=>go(k+1));
+  bPlay.addEventListener("click",()=>setPlaying(!playing));
+  bReset.addEventListener("click",()=>go(0));
+  document.addEventListener("keydown",e=>{
+    if(e.key==="ArrowRight")go(k+1);
+    else if(e.key==="ArrowLeft")go(k-1);
+    else if(e.key===" "&&!(e.target&&e.target.closest&&e.target.closest("button"))){e.preventDefault();setPlaying(!playing);}
+  });
+  go(0);
+}
+
+</script>
+<script>
+const svg=document.getElementById("scene");
+const SH=236,BW=52,BH=12,CX=320;
+const COLS=["--blue","--pink","--yellow","--green","--red","--violet"];
+// izenburu handia (riso erregistro-desbiderapenarekin)
+const eqBack=T("",{x:CX+3,y:52,"text-anchor":"middle",class:"disp","font-size":28,style:"fill:var(--pink);opacity:.7"},svg);
+const eqFront=T("",{x:CX,y:50,"text-anchor":"middle",class:"disp","font-size":28,style:"fill:var(--blue)"},svg);
+function setEq(s){eqBack.textContent=s;eqFront.textContent=s;}
+// apala
+S("rect",{x:14,y:SH,width:612,height:12,rx:2,style:"fill:var(--ink)"},svg);
+S("rect",{x:30,y:SH+12,width:10,height:16,style:"fill:var(--ink)"},svg);
+S("rect",{x:600,y:SH+12,width:10,height:16,style:"fill:var(--ink)"},svg);
+// soberan-kutxa
+const left=S("g",{class:"fade",style:"opacity:0"},svg);
+const leftBox=S("rect",{x:0,y:0,width:72,height:90,rx:8,style:"fill:none;stroke:var(--red-d);stroke-width:2.5;stroke-dasharray:6 4"},left);
+const leftLab=T("6 soberan",{x:0,y:0,"text-anchor":"middle",class:"disp","font-size":15,style:"fill:var(--red-d)"},left);
+// liburuak
+const books=[];
+for(let b=0;b<36;b++){
+  const g=S("g",{class:"mv",style:`opacity:0;transform:translate(${CX-BW/2}px,${SH-BH}px)`},svg);
+  S("rect",{x:0,y:0,width:BW,height:BH,rx:2,style:`fill:var(${COLS[b%6]});stroke:var(--ink);stroke-width:1.2`},g);
+  S("rect",{x:6,y:2,width:3,height:BH-4,style:"fill:var(--sheet);opacity:.75"},g);
+  S("rect",{x:BW-10,y:2,width:3,height:BH-4,style:"fill:var(--sheet);opacity:.75"},g);
+  books.push(g);
+}
+// etiketak apalaren azpian
+const labs=[];for(let i=0;i<9;i++)labs.push(T("",{x:0,y:SH+44,"text-anchor":"middle",class:"disp","font-size":15,style:"opacity:0"},svg));
+
+function layout(n,gap){const tot=n*BW+(n-1)*gap;return i=>CX-tot/2+i*(BW+gap);}
+function arrange(assign,n,gap,labels){
+  const sx=layout(n,gap);
+  books.forEach((g,b)=>{const a=assign(b);
+    if(!a){g.style.transitionDelay="0ms";g.style.opacity=0;return;}
+    g.style.transitionDelay=(b*18)+"ms";g.style.opacity=1;
+    g.style.transform=`translate(${sx(a[0])}px,${SH-BH*(a[1]+1)}px)`;});
+  labs.forEach((t,i)=>{const on=labels&&i<labels.length;t.style.opacity=on?1:0;if(on){t.textContent=labels[i];t.setAttribute("x",sx(i)+BW/2);}});
+  return sx;
+}
+const steps=[
+ {h:"Hiru pila mota",t:7500,
+  p:"Liburuak <b>4ko</b>, <b>6ko</b> edo <b>9ko</b> piletan jar daitezke, eta ez da inoiz libururik soberan geratzen. Zenbat liburu dira, gutxienez?"},
+ {h:"Proba: 24 liburu",t:10000,
+  p:"24 4-ren multiploa da (6 pila) eta 6-ren multiploa ere bai (4 pila). Baina 9ko piletan 2 pila osatzen dira eta <b>6 liburu soberan</b> geratzen dira. 24 ez da baliagarria.",
+  b:`<div class="eq">24 : 4 = 6 &nbsp;<span class="ok">hondarra 0</span></div><div class="eq">24 : 6 = 4 &nbsp;<span class="ok">hondarra 0</span></div><div class="eq">24 : 9 = 2 &nbsp;<span class="bad">hondarra 6</span></div>`},
+ {h:"Hiruren multiploa",t:10000,
+  p:"Liburu kopurua 4-ren, 6-ren eta 9-ren multiploa izan behar da aldi berean: <b>multiplo komuna</b>. Gutxienez galdetzen digutenez, txikiena: <b>mkt(4, 6, 9)</b>. Horiz: bi zerrendatan agertzen direnak. Arrosaz: hiruretan.",
+  b:mrow("4",chips([4,8,12,16,20,24,28,32,36],[12,24],36))+mrow("6",chips([6,12,18,24,30,36],[12,18,24],36))+mrow("9",chips([9,18,27,36],[18],36))},
+ {h:"mkt faktorizazioarekin",t:9500,
+  p:"Faktore <b>komunak eta ez-komunak</b>, <b>berretzaile handienarekin</b>: 2-ren handiena 2² da, eta 3-rena 3².",
+  b:`<div class="eq">4 = 2<sup>2</sup></div><div class="eq">6 = 2 · 3</div><div class="eq">9 = 3<sup>2</sup></div><div class="eq">mkt(4, 6, 9) = <span class="pk">2<sup>2</sup></span> · <span class="pk">3<sup>2</sup></span> = 4 · 9 = <b>36</b></div><div class="rule">mkt: faktore komunak eta ez-komunak, berretzaile handienarekin.</div>`},
+ {h:"Egiaztatu: 4ko pilak",t:7000,
+  p:"36 : 4 = 9. <b>Bederatzi pila</b>, eta ez da libururik soberan geratzen.",
+  b:`<div class="eq">36 : 4 = 9 &nbsp;<span class="ok">hondarra 0</span></div>`},
+ {h:"Egiaztatu: 6ko pilak",t:7000,
+  p:"Liburu berberak berrantolatuta: 36 : 6 = 6. <b>Sei pila</b>, soberarik gabe.",
+  b:`<div class="eq">36 : 6 = 6 &nbsp;<span class="ok">hondarra 0</span></div>`},
+ {h:"Egiaztatu: 9ko pilak",t:7000,
+  p:"Eta berriro: 36 : 9 = 4. <b>Lau pila</b>, soberarik gabe.",
+  b:`<div class="eq">36 : 9 = 4 &nbsp;<span class="ok">hondarra 0</span></div>`},
+ {h:"Emaitza",t:8000,
+  p:"Apalategian gutxienez <b>36 liburu</b> daude. Beste aukera batzuk 72, 108… izango lirateke (36-ren multiploak), baina txikiena 36 da.",
+  b:`<div class="result"><span class="tag">Emaitza</span><span class="big">36 liburu</span><span>mkt(4, 6, 9) = 2<sup>2</sup> · 3<sup>2</sup> = 36</span></div>`}
+];
+
+Player(steps,k=>{
+  show(left,k===1,k===1?900:0);
+  if(k===0){
+    arrange(b=>b<4?[0,b]:b<10?[1,b-4]:b<19?[2,b-10]:null,3,110,["4ko pila","6ko pila","9ko pila"]);
+    setEq("4ko, 6ko edo 9ko pilak");
+  }else if(k===1){
+    const sx=arrange(b=>b<18?[Math.floor(b/9),b%9]:b<24?[2,b-18]:null,3,70,["9","9",""]);
+    leftBox.setAttribute("x",sx(2)-10);leftBox.setAttribute("y",SH-6*BH-10);leftBox.setAttribute("height",6*BH+10);
+    leftLab.setAttribute("x",sx(2)+BW/2);leftLab.setAttribute("y",SH-6*BH-18);
+    setEq("24 liburu?");
+  }else if(k===2||k===3){
+    arrange(()=>null,1,0,null);
+    setEq(k===2?"mkt(4, 6, 9) = ?":"mkt(4, 6, 9) = 36");
+  }else if(k===4){
+    arrange(b=>[Math.floor(b/4),b%4],9,16,Array(9).fill("4"));setEq("9 pila × 4 = 36");
+  }else if(k===5){
+    arrange(b=>[Math.floor(b/6),b%6],6,34,Array(6).fill("6"));setEq("6 pila × 6 = 36");
+  }else{
+    arrange(b=>[Math.floor(b/9),b%9],4,60,Array(4).fill("9"));setEq(k===7?"36 liburu":"4 pila × 9 = 36");
+  }
+});
+
+</script>
+
+</body>
+</html>
