@@ -104,6 +104,10 @@ sup{font-size:.68em;line-height:0}
 .site a:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
 .site a[aria-current="page"]{background:var(--pink)}
 .site .home{font-family:var(--f-body);font-weight:700;margin-right:auto}
+.badge.b3{font-size:23px;letter-spacing:-.02em}
+.sec{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-top:2px solid var(--ink);padding-top:12px}
+.sec h2{font-size:clamp(22px,3vw,30px)}
+.sec span{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
 
 .hero{display:flex;flex-direction:column;gap:10px;max-width:60ch}
 .hero h1{font-size:clamp(34px,6.5vw,64px)}
@@ -126,6 +130,7 @@ sup{font-size:.68em;line-height:0}
 .kind{display:inline-block;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:999px;border:1.5px solid var(--ink);margin-bottom:6px}
 .kind.z{background:var(--pink)}
 .kind.m{background:var(--blue);color:var(--sheet)}
+.kind.v{background:var(--yellow)}
 .thumb{grid-column:1/-1;background:var(--paper);border-radius:6px;padding:10px;border:1px solid var(--line)}
 .thumb svg{display:block;width:100%;height:auto;max-height:120px}
 .go{grid-column:1/-1;font-weight:700;font-size:15px}
@@ -137,7 +142,7 @@ sup{font-size:.68em;line-height:0}
   <header class="hero">
     <p class="kicker">1. DBH · Matematika · Zatigarritasuna</p>
     <h1>zkh eta mkt, urratsez urrats</h1>
-    <p class="lead">Lau problema, animazio bana. Aukeratu bat eta sakatu <b>Erreproduzitu</b>, edo joan urratsez urrats geziekin.</p>
+    <p class="lead">Zortzi problema, animazio bana. Aukeratu bat eta sakatu <b>Erreproduzitu</b>, edo joan urratsez urrats geziekin.</p>
   </header>
 
   <section class="rules" aria-label="Gogoratu">
@@ -155,7 +160,8 @@ sup{font-size:.68em;line-height:0}
     </div>
   </section>
 
-  <section class="cards" aria-label="Ariketak">
+  <div class="sec"><h2>Zatigarritasuna</h2><span>46–49 jarduerak</span></div>
+  <section class="cards" aria-label="46–49 ariketak">
     <a class="card" href="46-lauzak.html">
       <div class="badge" aria-hidden="true">46</div>
       <div><span class="kind z">zkh</span><h3>Logelako lauzak</h3><p>520 × 240 cm-ko logela: zein da lauza karratu handiena, moztu gabe?</p></div>
@@ -205,7 +211,68 @@ sup{font-size:.68em;line-height:0}
       <span class="go">Ireki animazioa →</span>
     </a>
   </section>
-  <p class="foot">46–49 jarduerak · Zatigarritasuna · 1. DBH</p>
+  <div class="sec"><h2>Eguneroko bizimoduko problemak</h2><span>110–113 jarduerak</span></div>
+  <section class="cards" aria-label="110–113 ariketak">
+    <a class="card" href="110-botilak.html">
+      <div class="badge b3" aria-hidden="true">110</div>
+      <div><span class="kind v">zatitzaileak</span><h3>Biltegiko botilak</h3><p>84 botila, kutxa bakoitzean kopuru bera: zenbat modutara?</p></div>
+      <div class="thumb" aria-hidden="true"><svg viewBox="0 0 260 120">
+        <g style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"><rect x="14" y="14" width="106" height="44" rx="4"/><rect x="140" y="14" width="106" height="44" rx="4"/><rect x="14" y="66" width="106" height="44" rx="4"/><rect x="140" y="66" width="106" height="44" rx="4"/></g>
+        <g style="fill:var(--green);stroke:var(--ink);stroke-width:.8" id="bt">
+          <path d="M22 22h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M36 22h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M50 22h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M64 22h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M78 22h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M92 22h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/>
+          <path d="M148 22h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M162 22h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M176 22h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M190 22h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M204 22h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M218 22h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/>
+          <path d="M22 74h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M36 74h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M50 74h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M64 74h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M78 74h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M92 74h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/>
+          <path d="M148 74h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M162 74h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M176 74h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M190 74h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M204 74h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/><path d="M218 74h4v4c3 1 4 3 4 5v20h-12v-20c0-2 1-4 4-5Z"/>
+        </g>
+      </svg></div>
+      <span class="go">Ireki animazioa →</span>
+    </a>
+    <a class="card" href="111-ogitartekoak.html">
+      <div class="badge b3" aria-hidden="true">111</div>
+      <div><span class="kind z">zkh</span><h3>Cateringeko ogitartekoak</h3><p>240 eta 225 ogitarteko, zaporeak nahastu gabe: zenbat kutxa?</p></div>
+      <div class="thumb" aria-hidden="true"><svg viewBox="0 0 260 120">
+        <g style="fill:var(--paper);stroke:var(--ink);stroke-width:1.4"><rect x="10" y="10" width="54" height="46" rx="4"/><rect x="70" y="10" width="54" height="46" rx="4"/><rect x="10" y="64" width="54" height="46" rx="4"/><rect x="70" y="64" width="54" height="46" rx="4"/><rect x="136" y="10" width="54" height="46" rx="4"/><rect x="196" y="10" width="54" height="46" rx="4"/><rect x="136" y="64" width="54" height="46" rx="4"/><rect x="196" y="64" width="54" height="46" rx="4"/></g>
+        <g style="stroke:var(--ink);stroke-width:1;stroke-linejoin:round">
+          <path d="M16 16l12 12H16Z M32 16l12 12H32Z M48 16l12 12H48Z M16 34l12 12H16Z M32 34l12 12H32Z M48 34l12 12H48Z" style="fill:var(--pink)"/>
+          <path d="M76 16l12 12H76Z M92 16l12 12H92Z M108 16l12 12H108Z M76 34l12 12H76Z M92 34l12 12H92Z M108 34l12 12H108Z" style="fill:var(--pink)"/>
+          <path d="M16 70l12 12H16Z M32 70l12 12H32Z M48 70l12 12H48Z M16 88l12 12H16Z M32 88l12 12H32Z M48 88l12 12H48Z" style="fill:var(--pink)"/>
+          <path d="M76 70l12 12H76Z M92 70l12 12H92Z M108 70l12 12H108Z M76 88l12 12H76Z M92 88l12 12H92Z M108 88l12 12H108Z" style="fill:var(--pink)"/>
+          <path d="M142 16l12 12H142Z M158 16l12 12H158Z M174 16l12 12H174Z M142 34l12 12H142Z M158 34l12 12H158Z M174 34l12 12H174Z" style="fill:var(--yellow)"/>
+          <path d="M202 16l12 12H202Z M218 16l12 12H218Z M234 16l12 12H234Z M202 34l12 12H202Z M218 34l12 12H218Z M234 34l12 12H234Z" style="fill:var(--yellow)"/>
+          <path d="M142 70l12 12H142Z M158 70l12 12H158Z M174 70l12 12H174Z M142 88l12 12H142Z M158 88l12 12H158Z M174 88l12 12H174Z" style="fill:var(--yellow)"/>
+          <path d="M202 70l12 12H202Z M218 70l12 12H218Z M234 70l12 12H234Z M202 88l12 12H202Z M218 88l12 12H218Z M234 88l12 12H234Z" style="fill:var(--yellow)"/>
+        </g>
+      </svg></div>
+      <span class="go">Ireki animazioa →</span>
+    </a>
+    <a class="card" href="112-aireportua.html">
+      <div class="badge b3" aria-hidden="true">112</div>
+      <div><span class="kind m">mkt</span><h3>Aireportua hustu</h3><p>9 hegazkin, batzuk irten eta beste batzuk iritsi: noiz geratzen da hutsik?</p></div>
+      <div class="thumb" aria-hidden="true"><svg viewBox="0 0 260 120">
+        <path d="M20 20H215V35H229V50H243V100" style="fill:none;stroke:var(--line);stroke-width:1"/>
+        <path d="M20 22H52V40H72V58H92V49H100V67H140V58H148V76H180V67H188V85H210V103H240" style="fill:none;stroke:var(--pink);stroke-width:3.5;stroke-linejoin:round"/>
+        <path d="M20 106H245" style="stroke:var(--ink);stroke-width:1.5"/>
+        <circle cx="210" cy="103" r="6" style="fill:var(--yellow);stroke:var(--ink);stroke-width:1.5"/>
+        <path d="M232 14c1.5 0 2 2 2 4v4l9 5v2l-9-2.5v5.5l3 2.5v1.5l-5-1.2-5 1.2v-1.5l3-2.5v-5.5l-9 2.5v-2l9-5v-4c0-2 .5-4 2-4Z" transform="rotate(90 232 26)" style="fill:var(--blue);stroke:var(--ink);stroke-width:1"/>
+      </svg></div>
+      <span class="go">Ireki animazioa →</span>
+    </a>
+    <a class="card" href="113-taldeak.html">
+      <div class="badge b3" aria-hidden="true">113</div>
+      <div><span class="kind v">zatitzaileak</span><h3>Gelako taldeak</h3><p>32 ikasle, inor bakarrik ez: gutxienez eta gehienez zenbat talde?</p></div>
+      <div class="thumb" aria-hidden="true"><svg viewBox="0 0 260 120">
+        <g style="fill:var(--paper);stroke:var(--ink);stroke-width:1.4"><rect x="10" y="18" width="54" height="84" rx="10"/><rect x="72" y="18" width="54" height="84" rx="10"/><rect x="134" y="18" width="54" height="84" rx="10"/><rect x="196" y="18" width="54" height="84" rx="10"/></g>
+        <g style="stroke:var(--ink);stroke-width:1">
+          <g style="fill:var(--blue)"><circle cx="27" cy="34" r="6"/><path d="M18 58v-6c0-4 4-6 9-6s9 2 9 6v6Z"/><circle cx="47" cy="34" r="6"/><path d="M38 58v-6c0-4 4-6 9-6s9 2 9 6v6Z"/><circle cx="27" cy="72" r="6"/><path d="M18 96v-6c0-4 4-6 9-6s9 2 9 6v6Z"/><circle cx="47" cy="72" r="6"/><path d="M38 96v-6c0-4 4-6 9-6s9 2 9 6v6Z"/></g>
+          <g style="fill:var(--pink)"><circle cx="89" cy="34" r="6"/><path d="M80 58v-6c0-4 4-6 9-6s9 2 9 6v6Z"/><circle cx="109" cy="34" r="6"/><path d="M100 58v-6c0-4 4-6 9-6s9 2 9 6v6Z"/><circle cx="89" cy="72" r="6"/><path d="M80 96v-6c0-4 4-6 9-6s9 2 9 6v6Z"/><circle cx="109" cy="72" r="6"/><path d="M100 96v-6c0-4 4-6 9-6s9 2 9 6v6Z"/></g>
+          <g style="fill:var(--green)"><circle cx="151" cy="34" r="6"/><path d="M142 58v-6c0-4 4-6 9-6s9 2 9 6v6Z"/><circle cx="171" cy="34" r="6"/><path d="M162 58v-6c0-4 4-6 9-6s9 2 9 6v6Z"/><circle cx="151" cy="72" r="6"/><path d="M142 96v-6c0-4 4-6 9-6s9 2 9 6v6Z"/><circle cx="171" cy="72" r="6"/><path d="M162 96v-6c0-4 4-6 9-6s9 2 9 6v6Z"/></g>
+          <g style="fill:var(--violet)"><circle cx="213" cy="34" r="6"/><path d="M204 58v-6c0-4 4-6 9-6s9 2 9 6v6Z"/><circle cx="233" cy="34" r="6"/><path d="M224 58v-6c0-4 4-6 9-6s9 2 9 6v6Z"/><circle cx="213" cy="72" r="6"/><path d="M204 96v-6c0-4 4-6 9-6s9 2 9 6v6Z"/><circle cx="233" cy="72" r="6"/><path d="M224 96v-6c0-4 4-6 9-6s9 2 9 6v6Z"/></g>
+        </g>
+      </svg></div>
+      <span class="go">Ireki animazioa →</span>
+    </a>
+  </section>
+  <p class="foot">46–49 eta 110–113 jarduerak · Zatigarritasuna · 1. DBH</p>
 </div>
 
 </body>

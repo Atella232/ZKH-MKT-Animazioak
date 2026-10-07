@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lierniren kubo-zutabeak</title>
+<title>Biltegiko botilak</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=DM+Mono:wght@400;500&family=Dela+Gothic+One&display=swap">
@@ -112,21 +112,21 @@ sup{font-size:.68em;line-height:0}
 </head>
 <body>
 <div class="wrap">
-  <nav class="site" aria-label="Ariketak"><a class="home" href="./">← Ariketa guztiak</a><a href="46-lauzak.html">46</a><a href="47-alarmak.html">47</a><a href="48-kuboak.html" aria-current="page">48</a><a href="49-liburuak.html">49</a><a href="110-botilak.html">110</a><a href="111-ogitartekoak.html">111</a><a href="112-aireportua.html">112</a><a href="113-taldeak.html">113</a></nav>
+  <nav class="site" aria-label="Ariketak"><a class="home" href="./">← Ariketa guztiak</a><a href="46-lauzak.html">46</a><a href="47-alarmak.html">47</a><a href="48-kuboak.html">48</a><a href="49-liburuak.html">49</a><a href="110-botilak.html" aria-current="page">110</a><a href="111-ogitartekoak.html">111</a><a href="112-aireportua.html">112</a><a href="113-taldeak.html">113</a></nav>
   <header class="head">
-    <div class="badge" aria-hidden="true">48</div>
+    <div class="badge b3" aria-hidden="true">110</div>
     <div>
-      <p class="kicker">48. jarduera · mkt</p>
-      <h1>Lierniren kubo-zutabeak</h1>
+      <p class="kicker">110. jarduera · zatitzaileak</p>
+      <h1>Biltegiko botilak</h1>
     </div>
   </header>
   <section class="statement">
     <span class="tag">Enuntziatua</span>
-    <p>Liernik kubo urdinak eta gorriak ditu. Urdinen ertzak 55 mm ditu, eta gorrienak 45 mm. Bi zutabe egin ditu, kolore bakoitzeko bat. Gutxienez zenbat kubo behar ditu kolore bakoitzeko, bi zutabeak garaiera berekoak izateko?</p>
+    <p>Biltegi batean, 84 botila banatu nahi dituzte kutxatan, bat ere sobratu gabe. Zenbat modutara bana ditzakete, kutxa bakoitzean botila kopuru bera jarrita?</p>
   </section>
   <div class="grid">
     <div class="left">
-      <figure class="stage"><svg id="scene" viewBox="0 0 540 600" role="img" aria-label="Kubo urdinen eta gorrien bi zutabe, garaiera bera lortu arte pilatzen"></svg></figure>
+      <figure class="stage"><svg id="scene" viewBox="0 0 640 274" role="img" aria-label="84 botila kutxetan antolatzen, zatitzaile bakoitzeko modu bat"></svg></figure>
       <nav class="controls" aria-label="Animazioaren kontrolak">
         <button class="ctl" id="prev" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg>Atzera</button>
         <button class="ctl primary" id="play" type="button"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true" hidden><path d="M5 3v10M11 3v10"/></svg><span>Erreproduzitu</span></button>
@@ -230,79 +230,62 @@ function caption(svg,x,y,w){
 </script>
 <script>
 const svg=document.getElementById("scene");
-const G=552,BX=190,RX=345,D=11,SB=55,SR=45,RUL=86;
-// erregela
-S("line",{x1:RUL,y1:G,x2:RUL,y2:G-510,style:"stroke:var(--ink);stroke-width:2"},svg);
-for(let v=0;v<=510;v+=10){const big=v%50===0;
-  S("line",{x1:RUL-(big?10:5),y1:G-v,x2:RUL,y2:G-v,style:`stroke:var(--ink);stroke-width:${big?1.6:1}`},svg);
-  if(big)T(String(v),{x:RUL-14,y:G-v+4,"text-anchor":"end","font-size":12,style:"fill:var(--muted)"},svg);}
-T("mm",{x:RUL,y:G-520,"text-anchor":"middle","font-size":12,style:"fill:var(--muted)"},svg);
-// lurra
-S("rect",{x:40,y:G,width:480,height:6,style:"fill:var(--ink)"},svg);
-// bat-egite lerroa
-const match=S("g",{class:"fade",style:"opacity:0"},svg);
-S("line",{x1:RUL,y1:G-495,x2:470,y2:G-495,style:"stroke:var(--green);stroke-width:3;stroke-dasharray:8 5"},match);
-S("rect",{x:432,y:G-495-30,width:88,height:24,rx:12,style:"fill:var(--green)"},match);
-T("495 mm",{x:476,y:G-495-13,"text-anchor":"middle",class:"disp","font-size":14,style:"fill:var(--sheet)"},match);
-
-function cube(x0,y0,s,c,n,parent){
-  const g=S("g",{class:"mv",style:"opacity:0;transform:translate(0px,-60px)"},parent);
-  S("polygon",{points:`${x0+s},${y0} ${x0+s+D},${y0-D} ${x0+s+D},${y0+s-D} ${x0+s},${y0+s}`,style:`fill:var(${c}-d);stroke:var(--ink);stroke-width:1.3;stroke-linejoin:round`},g);
-  S("polygon",{points:`${x0},${y0} ${x0+D},${y0-D} ${x0+s+D},${y0-D} ${x0+s},${y0}`,style:`fill:var(${c}-l);stroke:var(--ink);stroke-width:1.3;stroke-linejoin:round`},g);
-  S("rect",{x:x0,y:y0,width:s,height:s,style:`fill:var(${c});stroke:var(--ink);stroke-width:1.5`},g);
-  T(String(n),{x:x0+s/2,y:y0+s/2+5,"text-anchor":"middle",class:"disp","font-size":14,style:"fill:var(--sheet)"},g);
-  return g;
+const N=84,AREA={x:20,y:52,w:600,sw:10,sh:22,g:2,pad:4,bg:7,center:true};
+const head=T("84 botila",{x:320,y:32,"text-anchor":"middle",class:"disp","font-size":22,style:"fill:var(--blue)"},svg);
+const boxG=S("g",{},svg),itemG=S("g",{},svg);
+const items=[];
+for(let i=0;i<N;i++){
+  const g=S("g",{class:"mv",style:"opacity:0;transform:translate(320px,150px)"},itemG);
+  S("path",{d:"M3.5 0h3v4c2.5 1 3.5 3 3.5 5.5V21a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V9.5C0 7 1 5 3.5 4Z",style:"fill:var(--green);stroke:var(--ink);stroke-width:.9"},g);
+  S("rect",{x:1.5,y:11,width:7,height:5,style:"fill:var(--sheet);opacity:.85"},g);
+  items.push(g);
 }
-const gB=S("g",{},svg),gR=S("g",{},svg);
-const blues=[],reds=[];
-for(let i=0;i<9;i++)blues.push(cube(BX,G-SB*(i+1),SB,"--blue",i+1,gB));
-for(let i=0;i<11;i++)reds.push(cube(RX,G-SR*(i+1),SR,"--red",i+1,gR));
-// garaiera-etiketak
-function htag(xx,c){const g=S("g",{class:"mv"},svg);
-  S("path",{d:`M${xx} 0 l10 -11 h62 v22 h-62 z`,style:`fill:var(${c});stroke:var(--ink);stroke-width:1.3`},g);
-  const t=T("",{x:xx+44,y:5,"text-anchor":"middle","font-size":13,style:"fill:var(--sheet);font-weight:500"},g);
-  return {g,t};}
-const tagB=htag(BX+SB+D+6,"--blue"),tagR=htag(RX+SR+D+6,"--red");
-const labB=T("urdina · 55 mm",{x:BX+SB/2,y:G+28,"text-anchor":"middle",class:"body","font-size":14},svg);
-const labR=T("gorria · 45 mm",{x:RX+SR/2,y:G+28,"text-anchor":"middle",class:"body","font-size":14},svg);
-
-const NB=[1,4,5,9,9,9,9],NR=[1,4,6,11,11,11,11];
-let pb=0,pr=0;
-function stack(arr,n,prev){arr.forEach((g,i)=>{const on=i<n;g.style.transitionDelay=(on&&i>=prev?(i-prev)*130:0)+"ms";g.style.opacity=on?1:0;g.style.transform=on?"translate(0px,0px)":"translate(0px,-60px)";});}
-function place(tag,h,s){tag.t.textContent=h+" mm";tag.g.style.transitionDelay="0ms";tag.g.style.transform=`translate(0px,${G-h+s/2}px)`;}
-
-const M55=[55,110,165,220,275,330,385,440,495];
-const M45=[45,90,135,180,225,270,315,360,405,450,495];
+const cap=caption(svg,70,232,500);
+const DIV=[1,2,3,4,6,7,12,14,21,28,42,84];
+const icFor=k=>Math.min(k,Math.ceil(Math.sqrt(k*2.4)));
+function arrange(k,label){
+  const L=packGroups(N,k,Object.assign({ic:k===N?14:icFor(k)},AREA));
+  moveItems(items,L,3);drawBoxes(boxG,L,{leftLabel:label});
+}
+let cyc=null;
+const pairs=[[1,84],[2,42],[3,28],[4,21],[6,14],[7,12]];
+const pairChips=pairs.map(([a,b])=>`<span class="chip">${a} · ${b}</span>`).join("");
 
 const steps=[
- {h:"Bi kubo mota",t:7000,
-  p:"Kubo urdinaren ertzak <b>55 mm</b> ditu; gorriarenak, <b>45 mm</b>. Kolore bakoitzeko zutabe bat egingo dugu, eta biek <b>garaiera bera</b> izan behar dute."},
- {h:"Pilatzen hasi",t:8500,
-  p:"Kubo bakoitzak bere ertza gehitzen dio zutabeari. Garaierak 55-en eta 45-en <b>multiploak</b> dira.",
-  b:mrow("urdina",chips(M55.slice(0,4)))+mrow("gorria",chips(M45.slice(0,4)))},
- {h:"Ia, baina ez",t:8000,
-  p:"5 kubo urdinekin 275 mm; 6 gorrirekin 270 mm. 5 mm-ko aldea dago oraindik. Jarraitu behar dugu.",
-  b:mrow("urdina",chips(M55.slice(0,5)))+mrow("gorria",chips(M45.slice(0,6)))},
- {h:"Garaiera bera!",t:8500,
-  p:"9 kubo urdinekin eta 11 gorrirekin, bi zutabeek <b>495 mm</b> neurtzen dute. Lehen aldiz dira berdinak.",
-  b:mrow("urdina",chips(M55,[],495))+mrow("gorria",chips(M45,[],495))},
- {h:"Multiplo komun txikiena",t:9000,
-  p:"495 55-en multiploa da, eta 45-en multiploa ere bai: <b>multiplo komuna</b>. Kubo gutxien nahi ditugunez, txikiena behar dugu: <b>mkt(55, 45)</b>.",
-  b:mrow("55",chips(M55,[],495))+mrow("45",chips(M45,[],495))+`<div class="eq">mkt(55, 45) = <b>495</b></div>`},
- {h:"mkt faktorizazioarekin",t:9500,
-  p:"Faktore <b>komunak eta ez-komunak</b> hartzen ditugu, <b>berretzaile handienarekin</b>.",
-  b:`<div class="ladders">${ladder(55,[5,11],"55 = 5 · 11")}${ladder(45,[3,3,5],"45 = 3<sup>2</sup> · 5")}</div><div class="eq">mkt(55, 45) = <span class="pk">3<sup>2</sup></span> · <span class="pk">5</span> · <span class="pk">11</span> = 9 · 5 · 11 = <b>495</b></div><div class="rule">mkt: faktore komunak eta ez-komunak, berretzaile handienarekin.</div>`},
+ {h:"84 botila, kutxetan",t:7000,
+  p:"Botila guztiak kutxetan sartu behar dira, <b>kutxa bakoitzean kopuru bera</b> eta <b>bat ere soberan geratu gabe</b>. Zenbat modu daude?"},
+ {h:"Proba: 8 botila kutxa bakoitzean",t:8500,
+  p:"84 : 8 = 10, eta <b>4 botila soberan</b> geratzen dira. 8 ez da 84-ren zatitzailea, beraz ez du balio.",
+  b:`<div class="eq">84 = 8 · 10 + 4 &nbsp;<span class="bad">hondarra 4</span></div>`},
+ {h:"Proba: 12 botila kutxa bakoitzean",t:8500,
+  p:"84 : 12 = 7, zehatz. <b>7 kutxa</b>, 12 botilarekin bakoitza. Modu bat aurkitu dugu!",
+  b:`<div class="eq">84 = 12 · 7 &nbsp;<span class="ok">hondarra 0</span></div>`},
+ {h:"Modu guztiak",t:21000,
+  p:"Botila kopuruak kutxa bakoitzean <b>84-ren zatitzailea</b> izan behar du. Ikusi animazioa: zatitzaile bakoitzak antolatzeko modu bat ematen du.",
+  b:mrow("84",chips(DIV))},
+ {h:"Faktore lehenak",t:9000,
+  p:"Zatitzaileak ez ahazteko, 84 <b>faktore lehenetan</b> deskonposatzen dugu.",
+  b:`<div class="ladders">${ladder(84,[2,2,3,7],"84 = 2<sup>2</sup> · 3 · 7")}</div>`},
+ {h:"Zatitzaileak binaka",t:10000,
+  p:"Biderkatuta 84 ematen duten <b>bikoteak</b> bilatzen ditugu. Bikote bakoitzak bi modu ematen ditu: adibidez, 4 kutxa 21 botilarekin, edo 21 kutxa 4 botilarekin.",
+  b:`<div class="row">${pairChips}</div><div class="eq">6 bikote · 2 = <b>12 modu</b></div><div class="rule">Trikimailua: (2+1) · (1+1) · (1+1) = 12 zatitzaile. Berretzaile bakoitzari 1 gehitu eta biderkatu.</div>`},
  {h:"Emaitza",t:9000,
-  p:"495 : 55 = <b>9 kubo urdin</b> eta 495 : 45 = <b>11 kubo gorri</b>. Bi zutabeek 495 mm (49,5 cm) neurtuko dute.",
-  b:`<div class="result"><span class="tag">Emaitza</span><span class="big">9 urdin · 11 gorri</span><span>Zutabe bakoitza: 495 mm = 49,5 cm</span></div>`}
+  p:"84-k <b>12 zatitzaile</b> ditu, beraz <b>12 modutara</b> bana daitezke botilak. Kutxa bakarra (84 botila) eta 84 kutxa (botila bana) kontuan hartzen ez badira, 10 modu geratzen dira.",
+  b:`<div class="result"><span class="tag">Emaitza</span><span class="big">12 modu</span><span>1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42, 84</span></div>`}
 ];
+const CAP=["84 botila","10 kutxa · 8 botila · 4 soberan","7 kutxa · 12 botila","","84 = 2² · 3 · 7","4 kutxa · 21 botila  edo  21 kutxa · 4 botila","12 modu"];
 
 Player(steps,k=>{
-  stack(blues,NB[k],pb);stack(reds,NR[k],pr);pb=NB[k];pr=NR[k];
-  place(tagB,NB[k]*SB,SB);place(tagR,NR[k]*SR,SR);
-  show(match,k>=3,k===3?1400:0);
-  labB.textContent=k===6?"9 kubo urdin":"urdina · 55 mm";
-  labR.textContent=k===6?"11 kubo gorri":"gorria · 45 mm";
+  clearInterval(cyc);
+  cap.textContent=CAP[k];
+  if(k===0){
+    const L=packGroups(N,N,Object.assign({},AREA,{ic:21}));moveItems(items,L,6);drawBoxes(boxG,L,{hide:true});head.textContent="84 botila";
+  }else if(k===1){arrange(8,"4 soberan");head.textContent="8 botila kutxako?";}
+  else if(k===2){arrange(12);head.textContent="12 botila kutxako";}
+  else if(k===3){
+    let i=0;const tick=()=>{const d=DIV[i%DIV.length];arrange(d);head.textContent=`${84/d} kutxa × ${d} botila`;cap.textContent=`${(i%DIV.length)+1}. modua · ${84/d} · ${d} = 84`;i++;};
+    tick();cyc=setInterval(tick,1700);
+  }else{arrange(21);head.textContent=k===6?"12 modu":"4 kutxa × 21 botila";}
 });
 
 </script>

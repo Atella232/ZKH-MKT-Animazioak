@@ -90,3 +90,7 @@ sup{font-size:.68em;line-height:0}
 .site a:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
 .site a[aria-current="page"]{background:var(--pink)}
 .site .home{font-family:var(--f-body);font-weight:700;margin-right:auto}
+.badge.b3{font-size:23px;letter-spacing:-.02em}
+.sec{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-top:2px solid var(--ink);padding-top:12px}
+.sec h2{font-size:clamp(22px,3vw,30px)}
+.sec span{font-family:var(--f-mono);font-size:13px;color:var(--muted)}

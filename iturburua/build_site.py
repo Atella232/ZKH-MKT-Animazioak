@@ -14,6 +14,7 @@ for p in pages:
     for k in ("NUM","KIND","TITLE","VIEWBOX","ALT","STATEMENT"):
         s = s.replace("{{"+k+"}}", p[k])
     s = s.replace('<div class="wrap">', '<div class="wrap">\n  '+nav, 1)
+    if len(p["NUM"])==3: s=s.replace('class="badge"','class="badge b3"',1)
     (site/p["file"]).write_text(wrap(s))
 idx = (src/"index.html").read_text().replace("{{CSS}}", css)
 (site/"index.html").write_text(wrap(idx))

@@ -46,3 +46,36 @@ function Player(steps,apply){
   });
   go(0);
 }
+function packGroups(N,k,o){
+  const s=o.sw,h=o.sh,g=o.g==null?2:o.g,pad=o.pad==null?4:o.pad,bg=o.bg==null?6:o.bg;
+  const ic=Math.min(o.ic||k,k),ir=Math.ceil(k/ic);
+  const bw=ic*s+(ic-1)*g+2*pad,bh=ir*h+(ir-1)*g+2*pad;
+  const per=Math.max(1,Math.floor((o.w+bg)/(bw+bg)));
+  const nb=Math.floor(N/k),r=N-nb*k,tot=nb+(r?1:0);
+  const usedW=Math.min(tot,per)*(bw+bg)-bg;
+  const x0=o.x+(o.center?(o.w-usedW)/2:0);
+  const box=b=>({x:x0+(b%per)*(bw+bg),y:o.y+Math.floor(b/per)*(bh+bg),w:bw,h:bh});
+  const boxes=[];for(let b=0;b<nb;b++)boxes.push(box(b));
+  let left=null;
+  if(r){left=box(nb);const lc=Math.min(r,ic),lr=Math.ceil(r/ic);left.w=lc*s+(lc-1)*g+2*pad;left.h=lr*h+(lr-1)*g+2*pad;}
+  const pos=[];
+  for(let i=0;i<N;i++){const b=Math.floor(i/k),j=i%k,B=box(b);pos.push([B.x+pad+(j%ic)*(s+g),B.y+pad+Math.floor(j/ic)*(h+g)]);}
+  return {pos,boxes,left,nb,r,height:Math.ceil(tot/per)*(bh+bg)-bg};
+}
+function drawBoxes(g,L,o){
+  o=o||{};g.innerHTML="";const els=[];
+  if(!o.hide)for(const B of L.boxes)els.push(S("rect",{x:B.x-1,y:B.y-1,width:B.w+2,height:B.h+2,rx:o.rx==null?4:o.rx,class:"fade",style:`fill:${o.fill||"var(--paper)"};stroke:${o.stroke||"var(--ink)"};stroke-width:${o.width||1.5};opacity:0`},g));
+  if(L.left&&!o.hide){
+    const B=L.left;
+    els.push(S("rect",{x:B.x-3,y:B.y-3,width:B.w+6,height:B.h+6,rx:5,class:"fade",style:"fill:none;stroke:var(--red-d);stroke-width:2.2;stroke-dasharray:5 3;opacity:0"},g));
+    if(o.leftLabel)els.push(T(o.leftLabel,{x:B.x+B.w/2,y:B.y+B.h+18,"text-anchor":"middle",class:"disp fade","font-size":13,style:"fill:var(--red-d);opacity:0"},g));
+  }
+  requestAnimationFrame(()=>requestAnimationFrame(()=>els.forEach(e=>show(e,true,o.delay==null?650:o.delay))));
+}
+function moveItems(items,L,stagger){
+  items.forEach((it,i)=>{const p=L.pos[i];it.style.transitionDelay=(i*(stagger||3))+"ms";it.style.opacity=1;it.style.transform=`translate(${p[0]}px,${p[1]}px)`;});
+}
+function caption(svg,x,y,w){
+  S("rect",{x,y,width:w,height:32,rx:16,style:"fill:var(--ink)"},svg);
+  return T("",{x:x+w/2,y:y+21,"text-anchor":"middle","font-size":14.5,style:"fill:var(--sheet)"},svg);
+}
